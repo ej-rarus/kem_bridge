@@ -82,15 +82,43 @@ export default function ConsultationPage() {
         console.log('SMS 발송 실패, 이메일로만 발송됨:', smsError);
       }
 
-      // 3. 카카오톡 알림톡 대안 (선택사항)
-      // 카카오톡 비즈니스 계정이 있다면 알림톡 API 사용 가능
-      // 현재는 이메일과 SMS만 사용
+      // 3. 카카오톡 알림톡 발송 (선택사항)
+      try {
+        // 카카오 알림톡 API 호출
+        const kakaoResponse = await fetch('/api/kakao-notification', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            to: '010-6289-6443', // 수신자 번호
+            templateId: 'KEM_BRIDGE_CONSULTATION', // 알림톡 템플릿 ID
+            templateArgs: {
+              신청자명: formData.name,
+              학생명: formData.studentName,
+              학년: formData.studentGrade,
+              과목: formData.subjects.join(', '),
+              연락처: formData.phone,
+              이메일: formData.email,
+              희망시간: formData.preferredTime,
+              문의사항: formData.message
+            }
+          })
+        });
+
+        if (kakaoResponse.ok) {
+          console.log('카카오톡 알림톡 발송 성공');
+        }
+      } catch (kakaoError) {
+        console.log('카카오톡 알림톡 발송 실패:', kakaoError);
+      }
 
       // 성공 메시지와 함께 추가 연락 방법 안내
       const successMessage = `상담 신청이 완료되었습니다!
 
 📧 학원 이메일로 상세 정보가 발송되었습니다.
 📱 SMS 알림도 발송을 시도했습니다.
+💬 카카오톡 알림톡도 발송을 시도했습니다.
 
 💡 만약 연락이 오지 않는다면:
 📞 직접 전화: 0507-1379-6889

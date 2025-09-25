@@ -7,7 +7,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { href: '/home', label: '홈' },
     { href: '/about', label: '학원 소개' },
     { href: '/curriculum', label: '커리큘럼' },
     { href: '/notice', label: '공지사항' },
