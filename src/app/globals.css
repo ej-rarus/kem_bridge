@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Primary color palette */
+  --color-primary-50: #fef7f0;
+  --color-primary-100: #fdeee0;
+  --color-primary-200: #fbd9c0;
+  --color-primary-300: #f8c096;
+  --color-primary-400: #f59e6b;
+  --color-primary-500: #ea8034;
+  --color-primary-600: #d66b2a;
+  --color-primary-700: #b35524;
+  --color-primary-800: #8f4524;
+  --color-primary-900: #743a21;
+  --color-primary-950: #3e1c0f;
+}
+
+/* 다크 모드 비활성화 - 항상 라이트 모드 사용 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+}
+
+body {
+  background: #ffffff !important;
+  color: #171717 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom primary color classes */
+.bg-primary-500 {
+  background-color: #ea8034;
+}
+
+.bg-primary-600 {
+  background-color: #d66b2a;
+}
+
+.bg-primary-700 {
+  background-color: #b35524;
+}
+
+.bg-primary-100 {
+  background-color: #fdeee0;
+}
+
+.bg-primary-50 {
+  background-color: #fef7f0;
+}
+
+.text-primary-500 {
+  color: #ea8034;
+}
+
+.text-primary-600 {
+  color: #d66b2a;
+}
+
+.text-primary-700 {
+  color: #b35524;
+}
+
+.text-primary-100 {
+  color: #fdeee0;
+}
+
+.text-primary-800 {
+  color: #8f4524;
+}
+
+.border-primary-500 {
+  border-color: #ea8034;
+}
+
+.border-primary-600 {
+  border-color: #d66b2a;
+}
+
+.hover\:bg-primary-600:hover {
+  background-color: #d66b2a;
+}
+
+.hover\:bg-primary-700:hover {
+  background-color: #b35524;
+}
+
+.hover\:text-primary-500:hover {
+  color: #ea8034;
+}
+
+.hover\:text-primary-600:hover {
+  color: #d66b2a;
+}
+
+.focus\:ring-primary-500:focus {
+  --tw-ring-color: #ea8034;
+}
+
+.from-primary-500 {
+  --tw-gradient-from: #ea8034;
+  --tw-gradient-to: rgb(234 128 52 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-primary-700 {
+  --tw-gradient-to: #b35524;
+}
