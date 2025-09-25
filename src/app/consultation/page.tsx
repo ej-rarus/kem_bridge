@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function ConsultationPage() {
   const [formData, setFormData] = useState({
@@ -32,11 +33,89 @@ export default function ConsultationPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // 폼 제출 로직 (실제로는 API 호출 등)
-    alert('상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.');
-    console.log('Form submitted:', formData);
+    
+    try {
+      // 이메일 템플릿 데이터 준비 (학원 이메일로 발송)
+      const templateParams = {
+        to_name: 'KEM Bridge',
+        from_name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        student_name: formData.studentName,
+        student_grade: formData.studentGrade,
+        subjects: formData.subjects.join(', '),
+        preferred_time: formData.preferredTime,
+        message: formData.message,
+        to_email: 'lpl2001@naver.com' // 학원 이메일로 발송
+      };
+
+      // SMS용 템플릿 데이터 (간단한 형태)
+      const smsTemplateParams = {
+        to_name: 'KEM Bridge',
+        from_name: formData.name,
+        phone: formData.phone,
+        student_name: formData.studentName,
+        student_grade: formData.studentGrade,
+        subjects: formData.subjects.join(', '),
+        to_email: '010-6289-6443@lguplus.co.kr' // LG U+ SMS 이메일
+      };
+
+      // 1. 학원 이메일로 상세 정보 발송
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      // 2. SMS용 간단한 알림 발송 (별도 템플릿 필요)
+      try {
+        await emailjs.send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          'template_sms_notification', // SMS용 템플릿 ID (별도 생성 필요)
+          smsTemplateParams,
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        );
+      } catch (smsError) {
+        console.log('SMS 발송 실패, 이메일로만 발송됨:', smsError);
+      }
+
+      // 3. 카카오톡 알림톡 대안 (선택사항)
+      // 카카오톡 비즈니스 계정이 있다면 알림톡 API 사용 가능
+      // 현재는 이메일과 SMS만 사용
+
+      // 성공 메시지와 함께 추가 연락 방법 안내
+      const successMessage = `상담 신청이 완료되었습니다!
+
+📧 학원 이메일로 상세 정보가 발송되었습니다.
+📱 SMS 알림도 발송을 시도했습니다.
+
+💡 만약 연락이 오지 않는다면:
+📞 직접 전화: 0507-1379-6889
+✉️ 이메일: lpl2001@naver.com
+
+빠른 시일 내에 연락드리겠습니다.`;
+
+      alert(successMessage);
+      
+      // 폼 초기화
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        studentName: '',
+        studentGrade: '',
+        subjects: [],
+        preferredTime: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('이메일 발송 실패:', error);
+      alert('상담 신청 중 오류가 발생했습니다. 전화로 직접 연락해주세요: 0507-1379-6889');
+    }
   };
 
   return (
@@ -102,29 +181,57 @@ export default function ConsultationPage() {
               </div>
 
               {/* 상담 시간 안내 */}
-              <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-4 text-gray-800">상담 시간</h3>
-                <div className="space-y-2 text-gray-600">
-                  <div className="flex justify-between">
-                    <span>평일:</span>
-                    <span>오전 9시 ~ 오후 9시</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>토요일:</span>
-                    <span>오전 9시 ~ 오후 6시</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>일요일:</span>
-                    <span>휴무</span>
-                  </div>
-                  <div className="mt-4 pt-4 border-t">
-                    <div className="text-sm text-gray-600">
-                      <p><strong>연락처:</strong> 0507-1379-6889</p>
-                      <p><strong>이메일:</strong> 8686889@naver.com</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                   <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
+                     <h3 className="text-xl font-semibold mb-4 text-gray-800">상담 시간</h3>
+                     <div className="space-y-2 text-gray-600">
+                       <div className="flex justify-between">
+                         <span>평일:</span>
+                         <span>오전 9시 ~ 오후 9시</span>
+                       </div>
+                       <div className="flex justify-between">
+                         <span>토요일:</span>
+                         <span>오전 9시 ~ 오후 6시</span>
+                       </div>
+                       <div className="flex justify-between">
+                         <span>일요일:</span>
+                         <span>휴무</span>
+                       </div>
+                       <div className="mt-4 pt-4 border-t">
+                         <div className="text-sm text-gray-600">
+                           <p><strong>연락처:</strong> 0507-1379-6889</p>
+                           <p><strong>이메일:</strong> lpl2001@naver.com</p>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+
+                   {/* 직접 연락 방법 안내 */}
+                   <div className="mt-6 bg-primary-50 p-6 rounded-lg border border-primary-200">
+                     <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
+                       <span className="text-2xl mr-2">💡</span>
+                       빠른 상담이 필요하시다면
+                     </h3>
+                     <div className="space-y-3">
+                       <div className="flex items-center">
+                         <span className="text-2xl mr-3">📞</span>
+                         <div>
+                           <p className="font-medium text-gray-800">직접 전화</p>
+                           <a href="tel:0507-1379-6889" className="text-primary-600 hover:text-primary-700 font-semibold">
+                             0507-1379-6889
+                           </a>
+                         </div>
+                       </div>
+                       <div className="flex items-center">
+                         <span className="text-2xl mr-3">✉️</span>
+                         <div>
+                           <p className="font-medium text-gray-800">이메일 문의</p>
+                           <a href="mailto:lpl2001@naver.com" className="text-primary-600 hover:text-primary-700 font-semibold">
+                             lpl2001@naver.com
+                           </a>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
             </div>
 
             {/* 상담 신청 폼 */}
