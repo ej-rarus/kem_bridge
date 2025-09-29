@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { to, templateId, templateArgs } = body;
+    const { templateArgs } = body;
 
     // 카카오 알림톡 API 설정
     const KAKAO_API_URL = 'https://kapi.kakao.com/v2/api/talk/memo/default/send';

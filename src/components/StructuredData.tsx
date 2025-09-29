@@ -1,9 +1,17 @@
 import Script from 'next/script';
 
-interface StructuredDataProps {
-  type: 'organization' | 'educationalOrganization' | 'localBusiness' | 'course' | 'breadcrumb';
-  data: any;
+interface CourseData {
+  name: string;
+  description: string;
+  level: string;
 }
+
+type BreadcrumbData = Array<{name: string; url: string}>;
+
+type StructuredDataProps = 
+  | { type: 'organization' | 'localBusiness'; data: Record<string, unknown> }
+  | { type: 'course'; data: CourseData }
+  | { type: 'breadcrumb'; data: BreadcrumbData };
 
 export default function StructuredData({ type, data }: StructuredDataProps) {
   const getStructuredData = () => {
@@ -71,15 +79,15 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
         return {
           "@context": "https://schema.org",
           "@type": "Course",
-          "name": data.name,
-          "description": data.description,
+          "name": (data as CourseData).name,
+          "description": (data as CourseData).description,
           "provider": {
             "@type": "EducationalOrganization",
             "name": "켐브릿지학원",
             "url": "https://kembridge.co.kr"
           },
           "courseMode": "blended",
-          "educationalLevel": data.level,
+          "educationalLevel": (data as CourseData).level,
           "inLanguage": "ko",
           "availableLanguage": "ko"
         };
@@ -88,7 +96,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
         return {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "itemListElement": data.map((item: any, index: number) => ({
+          "itemListElement": (data as BreadcrumbData).map((item, index: number) => ({
             "@type": "ListItem",
             "position": index + 1,
             "name": item.name,
