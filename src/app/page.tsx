@@ -1,6 +1,28 @@
+import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+
+export const metadata: Metadata = {
+  title: "홈",
+  description: "켐브릿지학원은 K(국어) E(영어) M(수학)을 연결하는 종합 교육으로 초·중·고 학생들의 학습 능력을 향상시킵니다. 개별 맞춤형 교육, 입시 컨설팅, 독서·논술 프로그램을 제공합니다.",
+  keywords: ["켐브릿지학원", "KEM Bridge", "국어", "영어", "수학", "학원", "입시컨설팅", "독서논술", "학생부컨설팅", "양주학원", "옥정학원", "초등학원", "중등학원", "고등학원"],
+  openGraph: {
+    title: "켐브릿지학원 | KEM Bridge - 국어 영어 수학 연결 교육",
+    description: "K(국어) E(영어) M(수학)을 연결하는 종합 교육으로 초·중·고 학생들의 학습 능력을 향상시킵니다.",
+    url: "https://kembridge.co.kr",
+  },
+};
+
 export default function HomePage() {
   return (
     <div className="bg-gray-50 min-h-screen">
+      <StructuredData 
+        type="course" 
+        data={{
+          name: "KEM Bridge 종합 교육 프로그램",
+          description: "K(국어) E(영어) M(수학)을 연결하는 종합적인 교육으로 초·중·고 학생들의 학습 능력을 향상시킵니다.",
+          level: "초등학교, 중학교, 고등학교"
+        }} 
+      />
       {/* 히어로 섹션 */}
       <section className="bg-gradient-to-r from-primary-500 to-primary-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

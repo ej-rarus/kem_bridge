@@ -2,6 +2,19 @@
 
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+
+export const metadata: Metadata = {
+  title: "상담 신청",
+  description: "켐브릿지학원 무료 상담을 신청하세요. 학생의 현재 수준 파악, 맞춤형 학습 계획 수립, 체계적인 학습 관리를 통해 최적의 교육 방향을 제시합니다. 전화: 0507-1379-6889",
+  keywords: ["켐브릿지학원", "상담신청", "무료상담", "학습상담", "입시상담", "맞춤형교육", "학습계획", "양주학원상담"],
+  openGraph: {
+    title: "상담 신청 | 켐브릿지학원",
+    description: "무료 상담을 통해 맞춤형 학습 계획을 세워드립니다. 학생의 현재 수준 파악부터 목표 달성까지 체계적으로 지원합니다.",
+    url: "https://kembridge.co.kr/consultation",
+  },
+};
 
 export default function ConsultationPage() {
   const [formData, setFormData] = useState({
@@ -148,6 +161,13 @@ export default function ConsultationPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      <StructuredData 
+        type="breadcrumb" 
+        data={[
+          { name: "홈", url: "https://kembridge.co.kr" },
+          { name: "상담 신청", url: "https://kembridge.co.kr/consultation" }
+        ]} 
+      />
       {/* 헤더 섹션 */}
       <section className="bg-gradient-to-r from-primary-500 to-primary-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -1,6 +1,27 @@
+import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+
+export const metadata: Metadata = {
+  title: "위치/오시는 길",
+  description: "켐브릿지학원 위치 안내. 경기도 양주시 옥정로 222 스카이타워 9층 904호. 지하철 양주역 도보 10분, 덕정역 도보 15분. 주차장 완비. 전화: 0507-1379-6889",
+  keywords: ["켐브릿지학원", "위치", "오시는길", "양주학원", "옥정학원", "양주역", "덕정역", "스카이타워", "주차장", "교통편"],
+  openGraph: {
+    title: "위치/오시는 길 | 켐브릿지학원",
+    description: "경기도 양주시 옥정로 222 스카이타워 9층 904호. 지하철 양주역 도보 10분, 주차장 완비.",
+    url: "https://kembridge.co.kr/location",
+  },
+};
+
 export default function LocationPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
+      <StructuredData 
+        type="breadcrumb" 
+        data={[
+          { name: "홈", url: "https://kembridge.co.kr" },
+          { name: "위치/오시는 길", url: "https://kembridge.co.kr/location" }
+        ]} 
+      />
       {/* 헤더 섹션 */}
       <section className="bg-gradient-to-r from-primary-500 to-primary-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -1,6 +1,27 @@
+import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+
+export const metadata: Metadata = {
+  title: "학원 소개",
+  description: "켐브릿지학원은 2019년 설립된 교육 전문 기관으로, K(국어) E(영어) M(수학)을 연결하는 다리가 되는 교육을 통해 학생들의 종합적인 학습 능력을 향상시킵니다. 대표 박은경, 경기도 양주시 옥정로 위치.",
+  keywords: ["켐브릿지학원", "학원소개", "박은경", "양주학원", "옥정학원", "교육철학", "강사진", "설립일", "학원정보"],
+  openGraph: {
+    title: "학원 소개 | 켐브릿지학원",
+    description: "켐브릿지학원은 2019년 설립된 교육 전문 기관으로, K(국어) E(영어) M(수학)을 연결하는 다리가 되는 교육을 제공합니다.",
+    url: "https://kembridge.co.kr/about",
+  },
+};
+
 export default function AboutPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
+      <StructuredData 
+        type="breadcrumb" 
+        data={[
+          { name: "홈", url: "https://kembridge.co.kr" },
+          { name: "학원 소개", url: "https://kembridge.co.kr/about" }
+        ]} 
+      />
       {/* 헤더 섹션 */}
       <section className="bg-gradient-to-r from-primary-500 to-primary-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

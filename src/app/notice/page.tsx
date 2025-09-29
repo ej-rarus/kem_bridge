@@ -1,3 +1,17 @@
+import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+
+export const metadata: Metadata = {
+  title: "공지사항",
+  description: "켐브릿지학원의 최신 공지사항과 소식을 확인하세요. 특별 프로그램, 휴무일, 강사진 소식, 모의고사 성적 발표 등 중요한 안내사항을 제공합니다.",
+  keywords: ["켐브릿지학원", "공지사항", "소식", "프로그램안내", "휴무일", "강사진", "모의고사", "성적발표", "양주학원소식"],
+  openGraph: {
+    title: "공지사항 | 켐브릿지학원",
+    description: "켐브릿지학원의 최신 공지사항과 소식을 확인하세요. 특별 프로그램, 휴무일, 강사진 소식 등을 제공합니다.",
+    url: "https://kembridge.co.kr/notice",
+  },
+};
+
 export default function NoticePage() {
   // 임시 공지사항 데이터
   const notices = [
@@ -45,6 +59,13 @@ export default function NoticePage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      <StructuredData 
+        type="breadcrumb" 
+        data={[
+          { name: "홈", url: "https://kembridge.co.kr" },
+          { name: "공지사항", url: "https://kembridge.co.kr/notice" }
+        ]} 
+      />
       {/* 헤더 섹션 */}
       <section className="bg-gradient-to-r from-primary-500 to-primary-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

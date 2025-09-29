@@ -1,6 +1,27 @@
+import type { Metadata } from "next";
+import StructuredData from "@/components/StructuredData";
+
+export const metadata: Metadata = {
+  title: "커리큘럼",
+  description: "켐브릿지학원의 체계적인 커리큘럼을 확인하세요. 국어, 영어, 수학, 과학, 독서·논술, 학생부 컨설팅, 입시 컨설팅, 학종 관리, 면접 대비 등 종합적인 교육 프로그램을 제공합니다.",
+  keywords: ["켐브릿지학원", "커리큘럼", "국어교육", "영어교육", "수학교육", "과학교육", "독서논술", "입시컨설팅", "학생부컨설팅", "학종관리", "면접대비"],
+  openGraph: {
+    title: "커리큘럼 | 켐브릿지학원",
+    description: "국어, 영어, 수학, 과학, 독서·논술, 입시 컨설팅 등 체계적인 교육 프로그램을 제공합니다.",
+    url: "https://kembridge.co.kr/curriculum",
+  },
+};
+
 export default function CurriculumPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
+      <StructuredData 
+        type="breadcrumb" 
+        data={[
+          { name: "홈", url: "https://kembridge.co.kr" },
+          { name: "커리큘럼", url: "https://kembridge.co.kr/curriculum" }
+        ]} 
+      />
       {/* 헤더 섹션 */}
       <section className="bg-gradient-to-r from-primary-500 to-primary-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
