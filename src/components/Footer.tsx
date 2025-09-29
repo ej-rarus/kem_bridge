@@ -69,10 +69,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 연락처 정보 */}
+          {/* 학원 정보 */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">연락처</h3>
+            <h3 className="text-lg font-semibold mb-4">학원 정보</h3>
             <div className="space-y-3">
+              <div>
+                <p className="text-gray-300 font-medium">켐브릿지학원</p>
+                <p className="text-gray-400 text-sm">대표: 박은경</p>
+                <p className="text-gray-400 text-sm">사업자등록번호: 686-92-00963</p>
+              </div>
               <div className="flex items-start">
                 <svg className="h-5 w-5 text-primary-500 mt-0.5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
