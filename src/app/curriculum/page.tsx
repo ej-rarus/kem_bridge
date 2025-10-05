@@ -247,7 +247,7 @@ export default function CurriculumPage() {
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-800">진단 평가</h3>
               <p className="text-gray-600 text-sm">
-                학생의 현재 수준을 정확히 파악하여 
+                학생의 현재 수준을 정확히 파악하여<br />
                 맞춤형 학습 계획을 수립합니다.
               </p>
             </div>
@@ -257,7 +257,7 @@ export default function CurriculumPage() {
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-800">기초 다지기</h3>
               <p className="text-gray-600 text-sm">
-                기본 개념을 탄탄히 다져 
+                기본 개념을 탄탄히 다져 <br />
                 향후 학습의 기반을 마련합니다.
               </p>
             </div>
@@ -267,7 +267,7 @@ export default function CurriculumPage() {
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-800">심화 학습</h3>
               <p className="text-gray-600 text-sm">
-                단계별로 난이도를 높여 
+                단계별로 난이도를 높여 <br />
                 실력 향상을 도모합니다.
               </p>
             </div>
@@ -277,7 +277,7 @@ export default function CurriculumPage() {
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-800">목표 달성</h3>
               <p className="text-gray-600 text-sm">
-                최종 목표 달성을 위한 
+                최종 목표 달성을 위한 <br />
                 집중적인 학습과 관리가 이루어집니다.
               </p>
             </div>
