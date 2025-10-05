@@ -72,7 +72,7 @@ export default function LocationPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">이메일</h3>
-                      <p className="text-gray-600">8686889@naver.com</p>
+                      <p className="text-gray-600">lpl2001@naver.com</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -82,55 +82,24 @@ export default function LocationPage() {
                     <div>
                       <h3 className="font-semibold text-gray-800">운영시간</h3>
                       <div className="text-gray-600">
-                        <p>평일: 오전 9시 ~ 오후 9시</p>
-                        <p>토요일: 오전 9시 ~ 오후 6시</p>
-                        <p>일요일: 휴무</p>
+                        <p>평일: 오후 2시 ~ 오후 10시</p>
+                        <p>토요일: 오후 1시 ~ 오후 6시</p>
+                        <p>일요일: 휴무 (시험 기간 제외)</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* 교통편 안내 */}
+              {/* 주차 안내 */}
               <div className="mt-8">
                 <h3 className="text-2xl font-bold mb-6 text-gray-800">
-                  교통편 안내
+                  주차 안내
                 </h3>
-                <div className="space-y-6">
-                  <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h4 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
-                      <span className="text-2xl mr-3">🚇</span>
-                      지하철
-                    </h4>
-                    <div className="space-y-2 text-gray-600">
-                      <p><strong>1호선 양주역:</strong> 도보 10분</p>
-                      <p><strong>경의중앙선 덕정역:</strong> 도보 15분</p>
-                      <p><strong>버스:</strong> 옥정로 정류장 하차</p>
-                    </div>
-                  </div>
-
-                  <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h4 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
-                      <span className="text-2xl mr-3">🚌</span>
-                      버스
-                    </h4>
-                    <div className="space-y-2 text-gray-600">
-                      <p><strong>시내버스:</strong> 1, 1-1, 1-2, 1-3, 1-4, 1-5</p>
-                      <p><strong>마을버스:</strong> 양주 1, 양주 2</p>
-                      <p><strong>정류장:</strong> 옥정로 스카이타워 하차</p>
-                    </div>
-                  </div>
-
-                  <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h4 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
-                      <span className="text-2xl mr-3">🚗</span>
-                      자가용
-                    </h4>
-                    <div className="space-y-2 text-gray-600">
-                      <p><strong>주차장:</strong> 스카이타워 지하 주차장 이용</p>
-                      <p><strong>주차 요금:</strong> 30분당 1,000원</p>
-                      <p><strong>주차 공간:</strong> 충분한 주차 공간 확보</p>
-                    </div>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="space-y-2 text-gray-600">
+                    <p><strong>주차장:</strong> 스카이타워 지하 주차장 이용</p>
+                    <p><strong>주차 요금:</strong> 무료 주차 가증</p>
                   </div>
                 </div>
               </div>
@@ -189,22 +158,22 @@ export default function LocationPage() {
                     <div className="text-center p-4 bg-gray-50 rounded-lg">
                       <div className="text-2xl mb-2">🏪</div>
                       <p className="text-sm font-medium text-gray-800">편의점</p>
-                      <p className="text-xs text-gray-600">도보 2분</p>
+                      <p className="text-xs text-gray-600">도보 1분</p>
                     </div>
                     <div className="text-center p-4 bg-gray-50 rounded-lg">
                       <div className="text-2xl mb-2">☕</div>
                       <p className="text-sm font-medium text-gray-800">카페</p>
-                      <p className="text-xs text-gray-600">도보 3분</p>
+                      <p className="text-xs text-gray-600">도보 1분</p>
                     </div>
                     <div className="text-center p-4 bg-gray-50 rounded-lg">
                       <div className="text-2xl mb-2">🍽️</div>
                       <p className="text-sm font-medium text-gray-800">식당</p>
-                      <p className="text-xs text-gray-600">도보 5분</p>
+                      <p className="text-xs text-gray-600">도보 1분</p>
                     </div>
                     <div className="text-center p-4 bg-gray-50 rounded-lg">
                       <div className="text-2xl mb-2">🏥</div>
                       <p className="text-sm font-medium text-gray-800">병원</p>
-                      <p className="text-xs text-gray-600">도보 7분</p>
+                      <p className="text-xs text-gray-600">도보 1분</p>
                     </div>
                   </div>
                 </div>
@@ -231,7 +200,7 @@ export default function LocationPage() {
               📞 전화 문의
             </a>
             <a
-              href="mailto:8686889@naver.com"
+              href="mailto:lpl2001@naver.com"
               className="border-2 border-primary-600 text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-600 hover:text-white transition-colors"
             >
               ✉️ 이메일 문의

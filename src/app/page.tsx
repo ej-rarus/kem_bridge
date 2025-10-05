@@ -34,12 +34,16 @@ export default function HomePage() {
             K(국어) E(영어) M(수학)을 연결하는 교육의 다리
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              상담 신청하기
-            </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors">
-              커리큘럼 보기
-            </button>
+            <Link href="/consultation">
+              <button className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                상담 신청하기
+              </button>
+            </Link>
+            <Link href="/curriculum">
+              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors">
+                커리큘럼 보기
+              </button>
+            </Link>
           </div>
         </div>
       </section>

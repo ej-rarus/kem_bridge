@@ -10,9 +10,11 @@ export default function ConsultationForm() {
     email: '',
     studentName: '',
     studentGrade: '',
+    studentSchool: '',
     subjects: [] as string[],
     preferredTime: '',
-    message: ''
+    message: '',
+    privacyConsent: false
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -24,17 +26,31 @@ export default function ConsultationForm() {
   };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      subjects: checked 
-        ? [...prev.subjects, value]
-        : prev.subjects.filter(subject => subject !== value)
-    }));
+    const { value, checked, name } = e.target;
+    
+    if (name === 'privacyConsent') {
+      setFormData(prev => ({
+        ...prev,
+        privacyConsent: checked
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        subjects: checked 
+          ? [...prev.subjects, value]
+          : prev.subjects.filter(subject => subject !== value)
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // 개인정보 제공 동의 확인
+    if (!formData.privacyConsent) {
+      alert('개인정보 제공에 동의해주세요.');
+      return;
+    }
     
     try {
       // 이메일 템플릿 데이터 준비 (학원 이메일로 발송)
@@ -45,6 +61,7 @@ export default function ConsultationForm() {
         email: formData.email,
         student_name: formData.studentName,
         student_grade: formData.studentGrade,
+        student_school: formData.studentSchool,
         subjects: formData.subjects.join(', '),
         preferred_time: formData.preferredTime,
         message: formData.message,
@@ -58,6 +75,7 @@ export default function ConsultationForm() {
         phone: formData.phone,
         student_name: formData.studentName,
         student_grade: formData.studentGrade,
+        student_school: formData.studentSchool,
         subjects: formData.subjects.join(', '),
         to_email: '010-6289-6443@lguplus.co.kr' // LG U+ SMS 이메일
       };
@@ -97,6 +115,7 @@ export default function ConsultationForm() {
               신청자명: formData.name,
               학생명: formData.studentName,
               학년: formData.studentGrade,
+              학교: formData.studentSchool,
               과목: formData.subjects.join(', '),
               연락처: formData.phone,
               이메일: formData.email,
@@ -135,9 +154,11 @@ export default function ConsultationForm() {
         email: '',
         studentName: '',
         studentGrade: '',
+        studentSchool: '',
         subjects: [],
         preferredTime: '',
-        message: ''
+        message: '',
+        privacyConsent: false
       });
       
     } catch (error) {
@@ -203,7 +224,7 @@ export default function ConsultationForm() {
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                학생 성함 *
+                학생 이름 *
               </label>
               <input
                 type="text"
@@ -226,8 +247,6 @@ export default function ConsultationForm() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="">학년 선택</option>
-                <option value="초등1">초등 1학년</option>
-                <option value="초등2">초등 2학년</option>
                 <option value="초등3">초등 3학년</option>
                 <option value="초등4">초등 4학년</option>
                 <option value="초등5">초등 5학년</option>
@@ -238,8 +257,23 @@ export default function ConsultationForm() {
                 <option value="고등1">고등 1학년</option>
                 <option value="고등2">고등 2학년</option>
                 <option value="고등3">고등 3학년</option>
+                <option value="N수생">N수생</option>
               </select>
             </div>
+          </div>
+          <div className="mt-4">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              학교명 * (예시: OO 초등학교)
+            </label>
+            <input
+              type="text"
+              name="studentSchool"
+              value={formData.studentSchool}
+              onChange={handleInputChange}
+              required
+              placeholder="예시: 양주초등학교, 옥정중학교, 양주고등학교"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
           </div>
         </div>
 
@@ -296,6 +330,28 @@ export default function ConsultationForm() {
             placeholder="학습 목표나 특별한 요청사항이 있으시면 적어주세요."
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           />
+        </div>
+
+        {/* 개인정보 제공 동의 */}
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <label className="flex items-start">
+            <input
+              type="checkbox"
+              name="privacyConsent"
+              checked={formData.privacyConsent}
+              onChange={handleCheckboxChange}
+              required
+              className="mt-1 mr-3"
+            />
+            <div className="text-sm text-gray-700">
+              <span className="font-medium text-red-600">*</span> 개인정보 제공에 동의합니다.
+              <br />
+              <span className="text-gray-500 text-xs">
+                상담 신청을 위해 입력하신 개인정보는 상담 목적으로만 사용되며, 
+                관련 법령에 따라 안전하게 관리됩니다.
+              </span>
+            </div>
+          </label>
         </div>
 
         {/* 제출 버튼 */}

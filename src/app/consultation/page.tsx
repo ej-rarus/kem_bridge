@@ -89,15 +89,15 @@ export default function ConsultationPage() {
                      <div className="space-y-2 text-gray-600">
                        <div className="flex justify-between">
                          <span>평일:</span>
-                         <span>오전 9시 ~ 오후 9시</span>
+                         <span>오후 2시 ~ 오후 10시</span>
                        </div>
                        <div className="flex justify-between">
                          <span>토요일:</span>
-                         <span>오전 9시 ~ 오후 6시</span>
+                         <span>오후 1시 ~ 오후 6시</span>
                        </div>
                        <div className="flex justify-between">
                          <span>일요일:</span>
-                         <span>휴무</span>
+                         <span>오후 2시 ~ 오후 10시</span>
                        </div>
                        <div className="mt-4 pt-4 border-t">
                          <div className="text-sm text-gray-600">

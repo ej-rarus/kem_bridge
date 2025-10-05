@@ -49,33 +49,33 @@ export default function CurriculumPage() {
           </div>
 
           {/* 과목별 커리큘럼 */}
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
             {/* 국어 커리큘럼 */}
             <div className="bg-white rounded-lg shadow-lg p-6">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
-                  <span className="text-2xl font-bold text-primary-600">K</span>
+                  <span className="text-2xl font-bold text-primary-600">국</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">국어</h3>
               </div>
               <div className="space-y-4">
                 <div className="border-l-4 border-primary-500 pl-4">
-                  <h4 className="font-semibold text-gray-800">독서·논술</h4>
-                  <p className="text-gray-600 text-sm">사고력과 표현력 향상</p>
-                </div>
-                <div className="border-l-4 border-primary-500 pl-4">
-                  <h4 className="font-semibold text-gray-800">학생부 컨설팅</h4>
-                  <p className="text-gray-600 text-sm">종합적인 국어 역량 개발</p>
-                </div>
-                <div className="border-l-4 border-primary-500 pl-4">
                   <h4 className="font-semibold text-gray-800">기초 문법</h4>
                   <p className="text-gray-600 text-sm">체계적인 국어 기초 다지기</p>
+                </div>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">독해력 향상</h4>
+                  <p className="text-gray-600 text-sm">다양한 텍스트 이해 능력 개발</p>
+                </div>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">문학 감상</h4>
+                  <p className="text-gray-600 text-sm">고전 및 현대 문학 작품 분석</p>
                 </div>
               </div>
               <div className="mt-6 pt-4 border-t">
                 <div className="flex justify-between text-sm text-gray-600">
-                  <span>대상: 초등 1학년 ~ 고등 3학년</span>
-                  <span>주 2-3회</span>
+                  <span>대상: 예비 중학 1학년 ~ 고등 3학년</span>
+                  <span>주 1-2회</span>
                 </div>
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function CurriculumPage() {
             <div className="bg-white rounded-lg shadow-lg p-6">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
-                  <span className="text-2xl font-bold text-primary-600">E</span>
+                  <span className="text-2xl font-bold text-primary-600">영</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">영어</h3>
               </div>
@@ -94,18 +94,18 @@ export default function CurriculumPage() {
                   <p className="text-gray-600 text-sm">문법 기초 및 어휘력 확장</p>
                 </div>
                 <div className="border-l-4 border-primary-500 pl-4">
-                  <h4 className="font-semibold text-gray-800">면접 대비</h4>
-                  <p className="text-gray-600 text-sm">실전 영어 면접 준비</p>
+                  <h4 className="font-semibold text-gray-800">회화 연습</h4>
+                  <p className="text-gray-600 text-sm">실전 영어 의사소통 능력 향상</p>
                 </div>
                 <div className="border-l-4 border-primary-500 pl-4">
-                  <h4 className="font-semibold text-gray-800">고급 과정</h4>
-                  <p className="text-gray-600 text-sm">의사소통 능력 향상</p>
+                  <h4 className="font-semibold text-gray-800">면접 대비</h4>
+                  <p className="text-gray-600 text-sm">영어 면접 및 발표 준비</p>
                 </div>
               </div>
               <div className="mt-6 pt-4 border-t">
                 <div className="flex justify-between text-sm text-gray-600">
-                  <span>대상: 초등 1학년 ~ 고등 3학년</span>
-                  <span>주 2-4회</span>
+                  <span>대상: 초등 4학년 ~ 고등 3학년</span>
+                  <span>주 2-3회</span>
                 </div>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function CurriculumPage() {
             <div className="bg-white rounded-lg shadow-lg p-6">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
-                  <span className="text-2xl font-bold text-primary-600">M</span>
+                  <span className="text-2xl font-bold text-primary-600">수</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800">수학</h3>
               </div>
@@ -128,47 +128,108 @@ export default function CurriculumPage() {
                   <p className="text-gray-600 text-sm">논리적 사고력과 문제 해결 능력</p>
                 </div>
                 <div className="border-l-4 border-primary-500 pl-4">
-                  <h4 className="font-semibold text-gray-800">과학 연계</h4>
-                  <p className="text-gray-600 text-sm">종합적인 수학적 사고 완성</p>
+                  <h4 className="font-semibold text-gray-800">수학적 사고</h4>
+                  <p className="text-gray-600 text-sm">창의적 문제 해결 접근법</p>
                 </div>
               </div>
               <div className="mt-6 pt-4 border-t">
                 <div className="flex justify-between text-sm text-gray-600">
-                  <span>대상: 초등 3학년 ~ 고등 3학년</span>
+                  <span>대상: 초등 4학년 ~ 고등 3학년</span>
                   <span>주 2-3회</span>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* 추가 프로그램 */}
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">
-              특별 프로그램
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🔬</span>
+            {/* 과학 커리큘럼 */}
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
+                  <span className="text-2xl font-bold text-primary-600">과</span>
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-gray-800">과학</h4>
-                <p className="text-gray-600 text-sm">실험을 통한 과학 원리 이해</p>
+                <h3 className="text-2xl font-bold text-gray-800">과학</h3>
               </div>
-              <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">📋</span>
+              <div className="space-y-4">
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">실험 중심 학습</h4>
+                  <p className="text-gray-600 text-sm">직접 체험을 통한 과학 원리 이해</p>
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-gray-800">입시 컨설팅</h4>
-                <p className="text-gray-600 text-sm">체계적인 입시 전략 수립</p>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">탐구 능력</h4>
+                  <p className="text-gray-600 text-sm">과학적 사고력과 탐구 능력 개발</p>
+                </div>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">수학 연계</h4>
+                  <p className="text-gray-600 text-sm">수학과 과학의 통합적 접근</p>
+                </div>
               </div>
-              <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">📊</span>
+              <div className="mt-6 pt-4 border-t">
+                <div className="flex justify-between text-sm text-gray-600">
+                  <span>대상: 중등 1학년 ~ 고등 3학년</span>
+                  <span>주 1회</span>
                 </div>
-                <h4 className="text-lg font-semibold mb-2 text-gray-800">학종 관리</h4>
-                <p className="text-gray-600 text-sm">학생부 종합전형 대비</p>
               </div>
             </div>
+
+            {/* 독서·논술 커리큘럼 */}
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
+                  <span className="text-2xl font-bold text-primary-600">독</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800">독서·논술</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">독서 습관</h4>
+                  <p className="text-gray-600 text-sm">체계적인 독서 계획 및 습관 형성</p>
+                </div>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">논술 기초</h4>
+                  <p className="text-gray-600 text-sm">논리적 사고와 표현력 향상</p>
+                </div>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">창의적 글쓰기</h4>
+                  <p className="text-gray-600 text-sm">창의적 사고와 글쓰기 능력 개발</p>
+                </div>
+              </div>
+              <div className="mt-6 pt-4 border-t">
+                <div className="flex justify-between text-sm text-gray-600">
+                  <span>대상: 초등 4학년 ~ 고등 3학년</span>
+                  <span>주 1회</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 입시 컨설팅 커리큘럼 */}
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
+                  <span className="text-2xl font-bold text-primary-600">입</span>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800">입시 컨설팅</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">학생부 관리</h4>
+                  <p className="text-gray-600 text-sm">체계적인 학생부 기록 관리</p>
+                </div>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">진로 상담</h4>
+                  <p className="text-gray-600 text-sm">개별 맞춤형 진로 및 진학 상담</p>
+                </div>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <h4 className="font-semibold text-gray-800">면접 대비</h4>
+                  <p className="text-gray-600 text-sm">대학 입학 면접 및 구술 시험 준비</p>
+                </div>
+              </div>
+              <div className="mt-6 pt-4 border-t">
+                <div className="flex justify-between text-sm text-gray-600">
+                  <span>대상: 고등 1학년 ~ N수생 </span>
+                  <span>상담 후 결정</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -232,13 +293,13 @@ export default function CurriculumPage() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">집중 관리반</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-800">실력 보충반</h3>
               <p className="text-gray-600 mb-4">
-                소수 정예로 구성된 집중 관리반에서 
+                기초가 부족한 학생들을 대상으로 집중 관리반을 구성하여 
                 개별 맞춤형 학습을 진행합니다.
               </p>
               <ul className="text-gray-600 space-y-2">
-                <li>• 정원 5명 이하 소수 정예</li>
+                <li>• 추가 학습 및 보충 학습 제공</li>
                 <li>• 개별 학습 계획 수립</li>
                 <li>• 주 3회 이상 집중 학습</li>
                 <li>• 정기적인 진도 점검</li>
@@ -247,7 +308,7 @@ export default function CurriculumPage() {
             <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-4 text-gray-800">시험 대비반</h3>
               <p className="text-gray-600 mb-4">
-                각종 시험에 특화된 전략적 학습으로 
+                각종 시험(내신, 모의고사, 수학능력 시험 등)에 특화된 전략적 학습으로 
                 목표 점수 달성을 도와드립니다.
               </p>
               <ul className="text-gray-600 space-y-2">
@@ -255,6 +316,18 @@ export default function CurriculumPage() {
                 <li>• 시험 전략 및 시간 관리</li>
                 <li>• 약점 보완 집중 학습</li>
                 <li>• 심리적 안정 지원</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-gray-800">정기 단원평가 실시</h3>
+              <p className="text-gray-600 mb-4">
+                정기적으로 단원평가를 실시하여 학생의 학습 현황을 점검하고 
+                학습 결과에 따라 추가 학습 및 보충 학습을 제공합니다.
+              </p>
+              <ul className="text-gray-600 space-y-2">
+                <li>• 정기적인 단원평가 실시</li>
+                <li>• 학습 현황 점검 및 분석</li>
+                <li>• 학습 결과에 따라 추가 학습 및 보충 학습 제공</li>
               </ul>
             </div>
           </div>
