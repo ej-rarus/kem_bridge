@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 
 export const metadata: Metadata = {
@@ -118,9 +119,11 @@ export default function HomePage() {
             KEM Bridge와 함께 초·중·고 학생들의 종합적인 학습 능력을 향상시켜보세요. 
             무료 상담을 통해 맞춤형 학습 계획과 입시 전략을 세워드립니다.
           </p>
-          <button className="bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors">
-            무료 상담 신청하기
-          </button>
+          <Link href="/consultation">
+            <button className="bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors">
+              무료 상담 신청하기
+            </button>
+          </Link>
         </div>
       </section>
     </div>

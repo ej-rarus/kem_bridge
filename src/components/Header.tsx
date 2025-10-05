@@ -7,11 +7,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { href: '/about', label: '학원 소개' },
+    { href: '/about', label: '학원소개' },
     { href: '/curriculum', label: '커리큘럼' },
     { href: '/notice', label: '공지사항' },
-    { href: '/consultation', label: '상담 신청' },
-    { href: '/location', label: '위치/오시는 길' },
+    { href: '/consultation', label: '상담신청' },
+    { href: '/location', label: '오시는 길' },
   ];
 
   return (
@@ -24,7 +24,7 @@ const Header = () => {
               <span className="text-white font-bold text-xl">K</span>
             </div>
             <div>
-              <span className="text-2xl font-bold text-gray-800">KEM Bridge</span>
+              <span className="text-2xl font-bold text-gray-800">켐브릿지</span>
               <p className="text-sm text-gray-500">차세대 교육의 다리</p>
             </div>
           </Link>
